@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <link rel="stylesheet"  href="/static/main.css">
+  </head>
+  <body>
+    <div class="container">
+        <h2>Debate: <br><center>Should NY State allow hydraulic fracturing <br>for natural gas?</center></h2>
+        <div class="float-panel">
+            <div class="half-panel half-panel-left" id="box-for"><div class="text"><span id="result-for">?</span></div></div>
+            <div class="half-panel half-panel-right" id="box-against"><div class="text"><span id="result-against">?</span></div></div>
+        </div>
+        <ul id="messages"></ul>
+        <form id="for" action="">
+            <button>For</button>
+        </form>
+        <form id="against" action="">
+            <button>Against</button>
+        </form>
+    </div>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+      
+        var messages = document.getElementById('messages');
+        var votefor = document.getElementById('for');
+        var voteagainst = document.getElementById('against');
+        
+        votefor.addEventListener('submit', function(e) {
+            e.preventDefault();
+            socket.emit('chat message', 1);
+            votefor.classList.add('selected');
+            voteagainst.classList.remove('selected');
+        });
+
+        voteagainst.addEventListener('submit', function(e) {
+            e.preventDefault();
+            socket.emit('chat message', -1);
+            voteagainst.classList.add('selected');
+            votefor.classList.remove('selected');
+        });
+      
+        socket.on('chat message', function(msg) {
+            var for_count = msg[0];
+            var against_count = msg[1];
+            var for_item = document.getElementById('result-for');
+            var against_item = document.getElementById('result-against');
+            for_item.textContent = for_count;
+            against_item.textContent = against_count;
+            var for_box = document.getElementById('box-for');
+            var against_box = document.getElementById('box-against');
+
+            var for_size = (for_count/ (against_count+for_count));
+            var against_size = (against_count/ (against_count+for_count));
+            for_box.style.width =  (for_size * 300) + "px";  
+            against_box.style.width =  (against_size * 300 )+ "px";            
+        //   messages.appendChild(item);
+
+        });
+      </script>
+  </body>
+</html>

@@ -1,0 +1,158 @@
+body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+
+#for { 
+    background: rgba(0, 0, 0, 0.15); 
+    padding: 0.25rem; 
+    position: fixed; 
+    bottom: 0; 
+    left: 0; 
+    display: flex; 
+    height: 3rem; 
+    box-sizing: border-box; 
+    backdrop-filter: blur(10px); 
+    width: 180px;
+  }
+    
+#for > button { 
+    padding: 0 1rem; 
+    margin: 0.25rem; 
+    border-radius: 3px; 
+    outline: none; 
+    width: 160px;
+    font-size: large;
+    font-weight: bold;
+    color: #1E85B8; 
+    background: #E4E5E8;
+    font-weight: bolder;
+    border:#1E85B8 solid 3px;
+    font-family: "Gill Sans", sans-serif;
+  }
+#against { 
+    background: rgba(0, 0, 0, 0.15); 
+    padding: 0.25rem; 
+    position: fixed; 
+    bottom: 0; 
+    right: 0; 
+    display: flex; 
+    height: 3rem; 
+    box-sizing: border-box; 
+    backdrop-filter: blur(10px); 
+    width: 180px;
+  }
+#against > button { 
+    padding: 0 1rem; 
+    margin: 0.25rem; 
+    border-radius: 3px; 
+    outline: none; 
+    right: 0;
+    width: 160px;
+    font-size: large;
+    color: #E45B5E; 
+    background: #E4E5E8;
+    font-weight: bolder;
+    border:#E45B5E solid 3px;
+    font-family: "Gill Sans", sans-serif;
+
+  }
+
+button:hover{
+  transition: 0.2s all;
+  }
+.container {
+      height: 500px;
+      width: 360px;
+      /* background: rgb(236, 251, 255); */
+      background-image: url("/static/background.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: bottom; /* Center the image */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 10px;
+      box-shadow: 0px 5px 10px -6px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      display: grid;
+  }
+  
+  .container>div {
+  text-align: center;
+  }
+
+  .container>div:hover {
+  cursor: pointer;
+  }
+  .container>h2{
+      padding: 10px;
+      color:#5D605E;
+  }
+  #for.selected > button{
+    background: #1E85B8; 
+    color: #E4E5E8;
+    font-weight: bolder;
+    border: none; 
+    
+  }
+  #against.selected > button{
+    background: #E45B5E; 
+    color: #E4E5E8;
+    font-weight: bolder;
+    border: none; 
+  }
+
+.float-panel{
+  width:300px;
+  height: 200px;
+  position: fixed; 
+  top: 60%;
+  left: 50%;
+  display: flex; 
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px -6px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  display: grid;
+
+}
+.float-panel span{
+  text-align: center;
+}
+.text {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  user-select: none;
+}
+.half-panel:hover{
+  cursor: pointer;
+}
+.half-panel-left{
+  width:50%;
+  height:100%;
+  position: fixed;
+  background-color: #1e85b8bf ;
+  left:0;
+  transition: all 0.3s;
+}
+.half-panel #result-for{
+  font-size: 60px;
+  color:#E4E5E8;
+  font-family: "Gill Sans", sans-serif;
+
+}
+.half-panel-right{
+  width:50%;
+  height:100%;
+  position: fixed;
+  background-color: #e45b5dc8;
+  right:0;
+  transition: all 0.3s;
+}
+.half-panel #result-against{
+  font-size: 60px;
+  color: #E4E5E8;
+  font-family: "Gill Sans", sans-serif;
+}
