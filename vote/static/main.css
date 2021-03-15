@@ -84,9 +84,9 @@ button:hover{
   text-align: center;
   }
 
-  .container>div:hover {
+  /* .container>div:hover {
   cursor: pointer;
-  }
+  } */
   .container>h3{
       padding: 10px;
       color:#5D605E;
@@ -130,7 +130,16 @@ button:hover{
   transform: translate(-50%, -50%);
   user-select: none;
 }
+.half-panel{
+  cursor: pointer;
+}
 .half-panel:hover{
+  cursor: pointer;
+}
+.half-panel-left{
+  cursor: pointer;
+}
+.half-panel-right{
   cursor: pointer;
 }
 .half-panel-left{
