@@ -2,6 +2,8 @@ node_modules/
 package-lock.json
 vote/error-file.txt
 vote/log-file.txt
+*/.DS_Store
+.DS_Store
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
